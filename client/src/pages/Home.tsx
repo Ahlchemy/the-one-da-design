@@ -193,7 +193,7 @@ export default function Home() {
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold text-foreground">
+              <h1 className="text-2xl font-bold text-foreground">
                 Dean Ahlgren
               </h1>
             </div>
@@ -243,7 +243,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-20 pt-12 md:pt-16 lg:pt-20">
+      <section ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-32 pt-24 md:pt-32 lg:pt-40 min-h-[85vh]">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

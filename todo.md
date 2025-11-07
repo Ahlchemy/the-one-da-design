@@ -69,3 +69,22 @@
 - [x] Include AI methodologies, tools, software, and skills
 - [x] Make scroller height slightly larger than a header
 - [x] Implement smooth infinite scroll animation
+
+
+## Git Deployment
+
+- [x] Initialize Git repository
+- [x] Create README.md
+- [x] Add all files to Git
+- [x] Create initial commit
+- [x] Set main branch
+- [x] Add GitHub remote origin
+- [x] Push to GitHub repository
+
+
+## Hero Section Spacing Adjustments
+
+- [x] Increase Dean Ahlgren navigation title size by 10%
+- [x] Add more white space at top of hero section
+- [x] Move hero content down to create better spacing
+- [x] Ensure "Why Choose AI-Powered Learning" heading visible at bottom of viewport
