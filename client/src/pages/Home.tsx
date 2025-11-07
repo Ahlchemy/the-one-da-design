@@ -197,45 +197,47 @@ export default function Home() {
                 Dean Ahlgren
               </h1>
             </div>
-            <div className="hidden md:flex items-center gap-8">
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            <div className="flex items-center gap-6">
+              <div className="hidden md:flex items-center gap-8">
+                <button 
+                  onClick={() => scrollToSection('about')}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  About
+                </button>
+                <button 
+                  onClick={() => scrollToSection('projects')}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Projects
+                </button>
+                <button 
+                  onClick={() => alert('Articles section coming soon!')}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Articles
+                </button>
+                <button 
+                  onClick={() => alert('Resources section coming soon!')}
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Resources
+                </button>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                className="rounded-full"
+                aria-label="Toggle theme"
               >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Projects
-              </button>
-              <button 
-                onClick={() => alert('Articles section coming soon!')}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Articles
-              </button>
-              <button 
-                onClick={() => alert('Resources section coming soon!')}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Resources
-              </button>
+                {theme === 'dark' ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </Button>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </Button>
           </div>
         </div>
       </nav>

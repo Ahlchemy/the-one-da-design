@@ -53,3 +53,10 @@
 - [x] Implement gradient that follows mouse position on "Transformation" text
 - [x] Make effect subtle but noticeable
 - [x] Ensure effect only works when hovering over hero section
+
+
+## Navigation Layout Update
+
+- [x] Move navigation links to the right side of the nav bar
+- [x] Position links next to theme toggle icon
+- [x] Add extra spacing between links and icon
