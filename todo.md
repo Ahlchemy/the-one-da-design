@@ -88,3 +88,9 @@
 - [x] Add more white space at top of hero section
 - [x] Move hero content down to create better spacing
 - [x] Ensure "Why Choose AI-Powered Learning" heading visible at bottom of viewport
+
+
+## Hero Spacing Fine-Tuning
+
+- [x] Reduce hero section padding to 50% between original and current
+- [x] Find balanced spacing that's not too cramped or too spacious

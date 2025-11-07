@@ -243,7 +243,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-32 pt-24 md:pt-32 lg:pt-40 min-h-[85vh]">
+      <section ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-26 pt-18 md:pt-24 lg:pt-30 min-h-[75vh]">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
