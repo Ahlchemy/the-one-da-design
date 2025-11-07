@@ -27,3 +27,15 @@
 - [x] Create new AI-focused e-learning projects
 - [x] Update typography and spacing for refined aesthetic
 - [x] Ensure warm, approachable, and trustworthy design language
+
+
+## Navigation & Theme Enhancements
+
+- [x] Add top navigation bar with Dean Ahlgren branding on the left
+- [x] Add navigation links: About, Projects, Articles, Resources
+- [x] Align navigation with content elements below
+- [x] Style navigation to blend smoothly with hero section
+- [x] Make Dean Ahlgren name stand out with special styling
+- [x] Reduce hero image scale by one-third
+- [x] Implement light/dark theme toggle button
+- [x] Ensure theme toggle works across all sections

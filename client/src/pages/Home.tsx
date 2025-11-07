@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
+import { useTheme } from "@/contexts/ThemeContext";
 import { 
   Brain, 
   Lightbulb, 
@@ -25,10 +26,13 @@ import {
   Cpu,
   BookOpen,
   Code,
-  Palette
+  Palette,
+  Moon,
+  Sun
 } from "lucide-react";
 
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -133,6 +137,11 @@ export default function Home() {
     setFormData({ name: "", email: "", message: "" });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -155,8 +164,60 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation Bar */}
+      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+        <div className="container">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-2">
+              <h1 className="text-xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                Dean Ahlgren
+              </h1>
+            </div>
+            <div className="hidden md:flex items-center gap-8">
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                About
+              </button>
+              <button 
+                onClick={() => scrollToSection('projects')}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Projects
+              </button>
+              <button 
+                onClick={() => alert('Articles section coming soon!')}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Articles
+              </button>
+              <button 
+                onClick={() => alert('Resources section coming soon!')}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Resources
+              </button>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="rounded-full"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </Button>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-20 pt-16 md:pt-24 lg:pt-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-20 pt-12 md:pt-16 lg:pt-20">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -165,12 +226,12 @@ export default function Home() {
                 <Sparkles className="w-4 h-4" />
                 <span>AI-Powered Learning Solutions</span>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Turn Learning Into{" "}
                 <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                   Transformation
                 </span>
-              </h1>
+              </h2>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                 Build learning that actually works. With adaptive, human-centered design, I create solutions that deliver real results—empowering users and driving business success.
               </p>
@@ -191,7 +252,7 @@ export default function Home() {
                   size="lg" 
                   variant="outline"
                   className="border-2 hover:bg-secondary/10 hover:border-secondary"
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => scrollToSection('projects')}
                 >
                   <GraduationCap className="w-5 h-5 mr-2" />
                   View Projects
@@ -199,10 +260,10 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Dean's Headshot */}
+            {/* Dean's Headshot - Reduced by one-third */}
             <div className="relative hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-secondary/10 to-accent/10 rounded-3xl blur-3xl"></div>
-              <div className="relative">
+              <div className="relative max-w-sm mx-auto">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-card">
                   <img 
                     src="/dean-headshot.jpg" 
@@ -210,13 +271,13 @@ export default function Home() {
                     className="w-full h-auto object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-card p-6 rounded-xl shadow-xl border-2 border-accent/20">
+                <div className="absolute -bottom-4 -right-4 bg-card p-5 rounded-xl shadow-xl border-2 border-accent/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-accent" />
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                      <Zap className="w-5 h-5 text-accent" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-foreground">25+</div>
+                      <div className="text-xl font-bold text-foreground">25+</div>
                       <div className="text-xs text-muted-foreground">Years Experience</div>
                     </div>
                   </div>
@@ -259,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-muted/30 fade-in-section opacity-0 translate-y-8 transition-all duration-700">
+      <section id="about" className="py-20 bg-gradient-to-b from-background to-muted/30 fade-in-section opacity-0 translate-y-8 transition-all duration-700">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
