@@ -39,3 +39,9 @@
 - [x] Reduce hero image scale by one-third
 - [x] Implement light/dark theme toggle button
 - [x] Ensure theme toggle works across all sections
+
+
+## Navigation Title Styling Update
+
+- [x] Remove gradient styling from Dean Ahlgren navigation title
+- [x] Apply solid black color to navigation title

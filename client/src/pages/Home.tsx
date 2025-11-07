@@ -169,7 +169,7 @@ export default function Home() {
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <h1 className="text-xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              <h1 className="text-xl font-bold text-foreground">
                 Dean Ahlgren
               </h1>
             </div>
