@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
 import { 
   Brain, 
   Lightbulb, 
@@ -18,7 +19,13 @@ import {
   ChevronRight,
   Sparkles,
   GraduationCap,
-  Rocket
+  Rocket,
+  Zap,
+  BarChart3,
+  Cpu,
+  BookOpen,
+  Code,
+  Palette
 } from "lucide-react";
 
 export default function Home() {
@@ -61,48 +68,58 @@ export default function Home() {
 
   const projects = [
     {
-      title: "7th Grade Math Quest",
-      description: "Game-like experience for middle school math—immediate feedback and progress tracking.",
-      color: "from-blue-500 to-blue-600"
+      title: "AI-Powered Adaptive Learning Platform",
+      description: "Machine learning-driven platform that personalizes content delivery based on learner behavior, performance patterns, and cognitive load analysis.",
+      tools: ["Python", "TensorFlow", "React", "D3.js"],
+      scope: "Enterprise-wide deployment for 5,000+ learners",
+      domain: "Corporate Training & Development",
+      gradient: "from-primary via-secondary to-accent"
     },
     {
-      title: "The Remote Revolution",
-      description: "Interactive simulations exploring the economic, social, and environmental impacts of remote work.",
-      color: "from-green-500 to-green-600"
+      title: "Natural Language Processing Course Builder",
+      description: "AI assistant that helps instructional designers create course content using NLP to analyze learning objectives and auto-generate assessment items.",
+      tools: ["GPT-4 API", "Node.js", "Vue.js", "MongoDB"],
+      scope: "SaaS platform for educational institutions",
+      domain: "EdTech & AI Tools",
+      gradient: "from-secondary via-accent to-primary"
     },
     {
-      title: "SCORM Interactive Learning Module",
-      description: "Step-by-step JavaScript and e-learning compliance training for developers.",
-      color: "from-purple-500 to-purple-600"
+      title: "Intelligent Learning Analytics Dashboard",
+      description: "Real-time analytics platform using predictive AI to identify at-risk learners and recommend personalized intervention strategies.",
+      tools: ["Python", "Scikit-learn", "Tableau", "AWS"],
+      scope: "Multi-campus university system (20,000+ students)",
+      domain: "Higher Education Analytics",
+      gradient: "from-accent via-primary to-secondary"
     },
     {
-      title: "Solar System Planet Size Comparison",
-      description: "Interactive tool for astronomy learners to visualize and compare planetary data.",
-      color: "from-orange-500 to-orange-600"
+      title: "VR Simulation with AI Coaching",
+      description: "Immersive virtual reality training environment with AI-powered coaching that provides real-time feedback and adaptive scenario difficulty.",
+      tools: ["Unity", "C#", "OpenAI API", "Oculus SDK"],
+      scope: "Healthcare professional training program",
+      domain: "Medical Education & VR",
+      gradient: "from-primary/80 via-secondary/80 to-accent/80"
     },
     {
-      title: "Brain vs. Machine Intelligence",
-      description: "Visual comparison of human cognition and machine learning for deeper understanding.",
-      color: "from-indigo-500 to-indigo-600"
+      title: "Microlearning Content Generator",
+      description: "AI-driven system that transforms long-form content into bite-sized, mobile-optimized learning modules with automated knowledge checks.",
+      tools: ["React Native", "FastAPI", "Claude API", "PostgreSQL"],
+      scope: "Mobile-first learning for 10,000+ field workers",
+      domain: "Mobile Learning & AI",
+      gradient: "from-secondary/80 via-accent/80 to-primary/80"
     },
     {
-      title: "Hangul: Korean Writing System",
-      description: "Interactive exercises to master the Korean alphabet, with cultural context.",
-      color: "from-pink-500 to-pink-600"
+      title: "Conversational AI Learning Assistant",
+      description: "24/7 AI chatbot that answers learner questions, provides study recommendations, and guides users through complex course materials.",
+      tools: ["Dialogflow", "Node.js", "React", "Firebase"],
+      scope: "Cross-platform support system",
+      domain: "AI Chatbots & Support",
+      gradient: "from-accent/80 via-primary/80 to-secondary/80"
     }
-  ];
-
-  const workHistory = [
-    { title: "Instructional Developer", company: "Academy of Art University (Remote)", period: "May 2008 – Jan 2025" },
-    { title: "Instructional Design Supervisor", company: "Academy of Art University (San Francisco)", period: "Feb 2006 – May 2008" },
-    { title: "Instructional Designer", company: "Academy of Art University (San Francisco)", period: "Jan 2004 – Feb 2006" },
-    { title: "E-Learning Developer", company: "Vitesse Learning (San Francisco)", period: "Jan 2002 – Jan 2003" },
-    { title: "E-Learning Developer", company: "Bechtel Corporation (San Francisco)", period: "Jan 2000 – Jan 2001" }
   ];
 
   const scrollProjects = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 350;
+      const scrollAmount = 400;
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -139,12 +156,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5 pb-20 pt-16 md:pt-24 lg:pt-32">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-20 pt-16 md:pt-24 lg:pt-32">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium border border-secondary/20">
                 <Sparkles className="w-4 h-4" />
                 <span>AI-Powered Learning Solutions</span>
               </div>
@@ -157,8 +174,8 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                 Build learning that actually works. With adaptive, human-centered design, I create solutions that deliver real results—empowering users and driving business success.
               </p>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground bg-card p-4 rounded-lg border">
-                <Award className="w-5 h-5 text-secondary flex-shrink-0" />
+              <div className="flex items-center gap-2 text-sm text-muted-foreground bg-card p-4 rounded-lg border shadow-sm">
+                <Award className="w-5 h-5 text-accent flex-shrink-0" />
                 <p>25+ years of helping teams make learning better—for people, organizations, and outcomes.</p>
               </div>
               <div className="flex flex-wrap gap-4 pt-4">
@@ -173,6 +190,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   variant="outline"
+                  className="border-2 hover:bg-secondary/10 hover:border-secondary"
                   onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <GraduationCap className="w-5 h-5 mr-2" />
@@ -180,35 +198,26 @@ export default function Home() {
                 </Button>
               </div>
             </div>
+            
+            {/* Dean's Headshot */}
             <div className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-secondary/20 to-accent/20 rounded-3xl blur-3xl"></div>
-              <div className="relative bg-card p-8 rounded-2xl shadow-2xl border">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Brain className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="h-3 bg-primary/20 rounded-full w-3/4"></div>
-                      <div className="h-2 bg-muted rounded-full w-1/2 mt-2"></div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
-                      <Target className="w-6 h-6 text-secondary" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="h-3 bg-secondary/20 rounded-full w-2/3"></div>
-                      <div className="h-2 bg-muted rounded-full w-1/3 mt-2"></div>
-                    </div>
-                  </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-secondary/10 to-accent/10 rounded-3xl blur-3xl"></div>
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-card">
+                  <img 
+                    src="/dean-headshot.jpg" 
+                    alt="Dean Ahlgren - Instructional Designer and AI Learning Consultant" 
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-card p-6 rounded-xl shadow-xl border-2 border-accent/20">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                      <Lightbulb className="w-6 h-6 text-accent" />
+                      <Zap className="w-6 h-6 text-accent" />
                     </div>
-                    <div className="flex-1">
-                      <div className="h-3 bg-accent/20 rounded-full w-5/6"></div>
-                      <div className="h-2 bg-muted rounded-full w-2/5 mt-2"></div>
+                    <div>
+                      <div className="text-2xl font-bold text-foreground">25+</div>
+                      <div className="text-xs text-muted-foreground">Years Experience</div>
                     </div>
                   </div>
                 </div>
@@ -216,7 +225,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent"></div>
       </section>
 
       {/* Features Section */}
@@ -235,10 +243,10 @@ export default function Home() {
             {features.map((feature, index) => (
               <Card 
                 key={index} 
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/50"
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/50 bg-card"
               >
                 <CardContent className="p-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/10 to-accent/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
@@ -251,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-primary/5 fade-in-section opacity-0 translate-y-8 transition-all duration-700">
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30 fade-in-section opacity-0 translate-y-8 transition-all duration-700">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-8">
@@ -317,69 +325,48 @@ export default function Home() {
         <div className="container">
           <h2 className="text-4xl font-bold text-center mb-12">Experience at a Glance</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center p-6 border-2 hover:border-primary/50 transition-all">
+            <Card className="text-center p-6 border-2 hover:border-primary/50 transition-all bg-card shadow-sm hover:shadow-lg">
               <div className="text-5xl font-bold text-primary mb-2">25+</div>
-              <div className="text-sm text-muted-foreground">Years in Learning and Design</div>
+              <div className="text-sm text-muted-foreground font-semibold">Years in Learning and Design</div>
               <p className="text-xs mt-2 text-muted-foreground">Building clear, effective digital learning from San Francisco to Seoul to Honolulu</p>
             </Card>
-            <Card className="text-center p-6 border-2 hover:border-secondary/50 transition-all">
+            <Card className="text-center p-6 border-2 hover:border-secondary/50 transition-all bg-card shadow-sm hover:shadow-lg">
               <div className="text-5xl font-bold text-secondary mb-2">18</div>
-              <div className="text-sm text-muted-foreground">Years Remote Work</div>
+              <div className="text-sm text-muted-foreground font-semibold">Years Remote Work</div>
               <p className="text-xs mt-2 text-muted-foreground">Built original remote workflows and collaborated globally</p>
             </Card>
-            <Card className="text-center p-6 border-2 hover:border-accent/50 transition-all">
+            <Card className="text-center p-6 border-2 hover:border-accent/50 transition-all bg-card shadow-sm hover:shadow-lg">
               <div className="text-5xl font-bold text-accent mb-2">200+</div>
-              <div className="text-sm text-muted-foreground">University Courses</div>
+              <div className="text-sm text-muted-foreground font-semibold">University Courses</div>
               <p className="text-xs mt-2 text-muted-foreground">Designed everything from foundational courses to immersive VR labs</p>
             </Card>
-            <Card className="text-center p-6 border-2 hover:border-primary/50 transition-all">
+            <Card className="text-center p-6 border-2 hover:border-primary/50 transition-all bg-card shadow-sm hover:shadow-lg">
               <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">AI</div>
-              <div className="text-sm text-muted-foreground">Enhanced Development</div>
+              <div className="text-sm text-muted-foreground font-semibold">Enhanced Development</div>
               <p className="text-xs mt-2 text-muted-foreground">Used AI to streamline design and turn complexity into practical solutions</p>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Work History Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-accent/5 fade-in-section opacity-0 translate-y-8 transition-all duration-700">
-        <div className="container">
-          <h2 className="text-4xl font-bold text-center mb-12">Work History</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="relative border-l-2 border-primary/30 pl-8 space-y-8">
-              {workHistory.map((job, index) => (
-                <div key={index} className="relative">
-                  <div className="absolute -left-[41px] w-6 h-6 rounded-full bg-primary border-4 border-background"></div>
-                  <Card className="p-6 hover:shadow-lg transition-shadow">
-                    <h3 className="text-xl font-bold text-foreground">{job.title}</h3>
-                    <p className="text-primary font-medium mt-1">{job.company}</p>
-                    <p className="text-sm text-muted-foreground mt-2">{job.period}</p>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-background fade-in-section opacity-0 translate-y-8 transition-all duration-700">
+      <section id="projects" className="py-20 bg-gradient-to-b from-background to-muted/30 fade-in-section opacity-0 translate-y-8 transition-all duration-700">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-            <p className="text-muted-foreground">Swipe or scroll to explore interactive learning experiences</p>
+            <h2 className="text-4xl font-bold mb-4">Featured AI Learning Projects</h2>
+            <p className="text-muted-foreground">Swipe or scroll to explore cutting-edge AI-powered learning experiences</p>
           </div>
           <div className="relative">
             <button
               onClick={() => scrollProjects('left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-card shadow-lg rounded-full p-3 hover:bg-primary hover:text-primary-foreground transition-all"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-card shadow-lg rounded-full p-3 hover:bg-primary hover:text-primary-foreground transition-all border-2 border-border"
               aria-label="Scroll left"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={() => scrollProjects('right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-card shadow-lg rounded-full p-3 hover:bg-primary hover:text-primary-foreground transition-all"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-card shadow-lg rounded-full p-3 hover:bg-primary hover:text-primary-foreground transition-all border-2 border-border"
               aria-label="Scroll right"
             >
               <ChevronRight className="w-6 h-6" />
@@ -392,14 +379,51 @@ export default function Home() {
               {projects.map((project, index) => (
                 <Card
                   key={index}
-                  className="flex-shrink-0 w-80 group cursor-pointer hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                  className="flex-shrink-0 w-[420px] group cursor-pointer hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 hover:border-accent/50 bg-card"
                 >
-                  <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center text-white text-6xl font-bold group-hover:scale-110 transition-transform duration-300`}>
-                    <GraduationCap className="w-20 h-20" />
+                  <div className={`h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center text-white relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-all"></div>
+                    <Brain className="w-24 h-24 opacity-90 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                    <p className="text-muted-foreground">{project.description}</p>
+                  <CardContent className="p-6 space-y-4">
+                    <div>
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                    </div>
+                    
+                    <div className="space-y-3 pt-2 border-t">
+                      <div>
+                        <div className="text-xs font-semibold text-muted-foreground mb-2 flex items-center gap-1">
+                          <Code className="w-3 h-3" />
+                          Tools & Technologies
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tools.map((tool, i) => (
+                            <Badge key={i} variant="secondary" className="text-xs bg-secondary/10 text-secondary hover:bg-secondary/20">
+                              {tool}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="text-xs font-semibold text-muted-foreground mb-1 flex items-center gap-1">
+                          <BarChart3 className="w-3 h-3" />
+                          Scope
+                        </div>
+                        <p className="text-xs text-muted-foreground">{project.scope}</p>
+                      </div>
+                      
+                      <div>
+                        <div className="text-xs font-semibold text-muted-foreground mb-1 flex items-center gap-1">
+                          <BookOpen className="w-3 h-3" />
+                          Domain
+                        </div>
+                        <Badge variant="outline" className="text-xs border-accent/50 text-accent">
+                          {project.domain}
+                        </Badge>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -409,7 +433,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-b from-background to-primary/5 fade-in-section opacity-0 translate-y-8 transition-all duration-700">
+      <section className="py-20 bg-background fade-in-section opacity-0 translate-y-8 transition-all duration-700">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -420,7 +444,7 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
-                <Card className="p-6">
+                <Card className="p-6 border-2 hover:border-primary/30 transition-all bg-card shadow-sm">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                       <Mail className="w-6 h-6 text-primary" />
@@ -433,7 +457,7 @@ export default function Home() {
                     </div>
                   </div>
                 </Card>
-                <Card className="p-6">
+                <Card className="p-6 border-2 hover:border-secondary/30 transition-all bg-card shadow-sm">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
                       <MapPin className="w-6 h-6 text-secondary" />
@@ -444,7 +468,7 @@ export default function Home() {
                     </div>
                   </div>
                 </Card>
-                <Card className="p-6">
+                <Card className="p-6 border-2 hover:border-accent/30 transition-all bg-card shadow-sm">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
                       <Linkedin className="w-6 h-6 text-accent" />
@@ -458,7 +482,7 @@ export default function Home() {
                   </div>
                 </Card>
               </div>
-              <Card className="p-6">
+              <Card className="p-6 border-2 bg-card shadow-sm">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
@@ -469,6 +493,7 @@ export default function Home() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your name"
+                      className="border-2"
                     />
                   </div>
                   <div>
@@ -480,6 +505,7 @@ export default function Home() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="your.email@example.com"
+                      className="border-2"
                     />
                   </div>
                   <div>
@@ -491,9 +517,10 @@ export default function Home() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell me about your project..."
                       rows={4}
+                      className="border-2"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 shadow-md">
                     Send Message
                   </Button>
                 </form>
@@ -504,14 +531,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-foreground text-background">
+      <footer className="py-12 bg-primary text-primary-foreground">
         <div className="container">
           <div className="text-center space-y-4">
             <div className="text-2xl font-bold">Dean Ahlgren</div>
-            <p className="text-background/80 max-w-2xl mx-auto">
+            <p className="text-primary-foreground/80 max-w-2xl mx-auto">
               Creating meaningful connections through smart, human-centered design.
             </p>
-            <div className="text-sm text-background/60">
+            <div className="text-sm text-primary-foreground/60">
               © 2025 Dean Ahlgren. All rights reserved. | Based in Honolulu, available globally.
             </div>
           </div>
@@ -537,11 +564,8 @@ export default function Home() {
             <Button
               onClick={() => {
                 setIsModalOpen(false);
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                setTimeout(() => {
-                  const contactSection = document.querySelector('section:has(form)');
-                  contactSection?.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
+                const contactSection = document.querySelector('section:has(form)');
+                contactSection?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="w-full bg-primary hover:bg-primary/90"
             >

@@ -16,3 +16,14 @@
 - [x] Accessibility features (alt text, contrast, keyboard navigation)
 - [x] Modal/alert for CTA button interactions
 - [x] Smooth scrolling navigation
+
+
+## Redesign Tasks
+
+- [x] Implement sophisticated color scheme (Slate Blue, Warm Terracotta, Sage Teal, Warm Cream)
+- [x] Remove work history section completely
+- [x] Add Dean's headshot to hero or about section
+- [x] Enhance project cards with tools, scope, and domain metadata
+- [x] Create new AI-focused e-learning projects
+- [x] Update typography and spacing for refined aesthetic
+- [x] Ensure warm, approachable, and trustworthy design language
