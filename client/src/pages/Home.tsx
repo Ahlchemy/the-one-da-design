@@ -292,8 +292,8 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Dean's Headshot - Reduced by one-third */}
-            <div className="relative hidden lg:block">
+            {/* Dean's Headshot - Increased by 5% and moved 15px right */}
+            <div className="relative hidden lg:block" style={{ transform: 'translateX(15px) scale(1.05)' }}>
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-secondary/10 to-accent/10 rounded-3xl blur-3xl"></div>
               <div className="relative max-w-sm mx-auto">
                 <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-card">

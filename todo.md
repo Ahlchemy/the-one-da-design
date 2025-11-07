@@ -88,3 +88,9 @@
 - [x] Add more white space at top of hero section
 - [x] Move hero content down to create better spacing
 - [x] Ensure "Why Choose AI-Powered Learning" heading visible at bottom of viewport
+
+
+## Hero Image Adjustments
+
+- [x] Increase hero image size by 5%
+- [x] Move hero image 15px to the right
