@@ -45,3 +45,11 @@
 
 - [x] Remove gradient styling from Dean Ahlgren navigation title
 - [x] Apply solid black color to navigation title
+
+
+## Interactive Gradient Effect
+
+- [x] Add mouse tracking to hero section
+- [x] Implement gradient that follows mouse position on "Transformation" text
+- [x] Make effect subtle but noticeable
+- [x] Ensure effect only works when hovering over hero section

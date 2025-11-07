@@ -36,6 +36,8 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 
   const features = [
     {
@@ -143,6 +145,28 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setMousePosition({ x, y });
+      }
+    };
+
+    const heroElement = heroRef.current;
+    if (heroElement) {
+      heroElement.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => {
+      if (heroElement) {
+        heroElement.removeEventListener('mousemove', handleMouseMove);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -217,7 +241,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-20 pt-12 md:pt-16 lg:pt-20">
+      <section ref={heroRef} className="relative overflow-hidden bg-gradient-to-br from-background via-muted/30 to-background pb-20 pt-12 md:pt-16 lg:pt-20">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -228,7 +252,13 @@ export default function Home() {
               </div>
               <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Turn Learning Into{" "}
-                <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                <span 
+                  className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent transition-all duration-300"
+                  style={{
+                    backgroundPosition: `${mousePosition.x}% ${mousePosition.y}%`,
+                    backgroundSize: '200% 200%'
+                  }}
+                >
                   Transformation
                 </span>
               </h2>
