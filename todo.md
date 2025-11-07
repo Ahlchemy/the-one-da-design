@@ -60,3 +60,12 @@
 - [x] Move navigation links to the right side of the nav bar
 - [x] Position links next to theme toggle icon
 - [x] Add extra spacing between links and icon
+
+
+## Infinite Skills Scroller
+
+- [x] Add infinite horizontal text scroller above Let's Connect section
+- [x] Include instructional design methodologies, tools, software, and skills
+- [x] Include AI methodologies, tools, software, and skills
+- [x] Make scroller height slightly larger than a header
+- [x] Implement smooth infinite scroll animation

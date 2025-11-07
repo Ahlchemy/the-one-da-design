@@ -525,6 +525,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Infinite Skills Scroller */}
+      <section className="py-8 bg-muted/30 overflow-hidden border-y border-border">
+        <div className="flex items-center whitespace-nowrap">
+          <div className="animate-scroll flex items-center gap-12 pr-12">
+            {/* First set of items */}
+            <span className="text-lg font-semibold text-foreground">ADDIE Model</span>
+            <span className="text-lg font-semibold text-muted-foreground">SAM Methodology</span>
+            <span className="text-lg font-semibold text-foreground">Articulate 360</span>
+            <span className="text-lg font-semibold text-muted-foreground">Brightspace D2L</span>
+            <span className="text-lg font-semibold text-foreground">Adobe Captivate</span>
+            <span className="text-lg font-semibold text-muted-foreground">Bloom's Taxonomy</span>
+            <span className="text-lg font-semibold text-foreground">Universal Design</span>
+            <span className="text-lg font-semibold text-muted-foreground">TensorFlow</span>
+            <span className="text-lg font-semibold text-foreground">Machine Learning</span>
+            <span className="text-lg font-semibold text-muted-foreground">Natural Language Processing</span>
+            <span className="text-lg font-semibold text-foreground">GPT-4 API</span>
+            <span className="text-lg font-semibold text-muted-foreground">PyTorch</span>
+            <span className="text-lg font-semibold text-foreground">Learning Analytics</span>
+            <span className="text-lg font-semibold text-muted-foreground">Adaptive Learning</span>
+            <span className="text-lg font-semibold text-foreground">Scikit-learn</span>
+            <span className="text-lg font-semibold text-muted-foreground">React & Vue.js</span>
+            <span className="text-lg font-semibold text-foreground">Gamification</span>
+            <span className="text-lg font-semibold text-muted-foreground">Microlearning</span>
+            <span className="text-lg font-semibold text-foreground">VR Development</span>
+            <span className="text-lg font-semibold text-muted-foreground">Unity & Unreal</span>
+            {/* Duplicate set for seamless loop */}
+            <span className="text-lg font-semibold text-foreground">ADDIE Model</span>
+            <span className="text-lg font-semibold text-muted-foreground">SAM Methodology</span>
+            <span className="text-lg font-semibold text-foreground">Articulate 360</span>
+            <span className="text-lg font-semibold text-muted-foreground">Brightspace D2L</span>
+            <span className="text-lg font-semibold text-foreground">Adobe Captivate</span>
+            <span className="text-lg font-semibold text-muted-foreground">Bloom's Taxonomy</span>
+            <span className="text-lg font-semibold text-foreground">Universal Design</span>
+            <span className="text-lg font-semibold text-muted-foreground">TensorFlow</span>
+            <span className="text-lg font-semibold text-foreground">Machine Learning</span>
+            <span className="text-lg font-semibold text-muted-foreground">Natural Language Processing</span>
+            <span className="text-lg font-semibold text-foreground">GPT-4 API</span>
+            <span className="text-lg font-semibold text-muted-foreground">PyTorch</span>
+            <span className="text-lg font-semibold text-foreground">Learning Analytics</span>
+            <span className="text-lg font-semibold text-muted-foreground">Adaptive Learning</span>
+            <span className="text-lg font-semibold text-foreground">Scikit-learn</span>
+            <span className="text-lg font-semibold text-muted-foreground">React & Vue.js</span>
+            <span className="text-lg font-semibold text-foreground">Gamification</span>
+            <span className="text-lg font-semibold text-muted-foreground">Microlearning</span>
+            <span className="text-lg font-semibold text-foreground">VR Development</span>
+            <span className="text-lg font-semibold text-muted-foreground">Unity & Unreal</span>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-20 bg-background fade-in-section opacity-0 translate-y-8 transition-all duration-700">
         <div className="container">
