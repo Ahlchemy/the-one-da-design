@@ -7,12 +7,22 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Articles from "./pages/Articles";
+import ArticleDetail from "./pages/ArticleDetail";
+import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
+import Resources from "./pages/Resources";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path="/login" component={Login} />
+      <Route path="/articles" component={Articles} />
+      <Route path="/articles/:slug" component={ArticleDetail} />
+      <Route path="/projects" component={Projects} />
+      <Route path="/projects/:slug" component={ProjectDetail} />
+      <Route path="/resources" component={Resources} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
