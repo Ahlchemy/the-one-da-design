@@ -233,3 +233,19 @@
 .animate-scroll {
   animation: scroll-left 60s linear infinite;
 }
+
+/* Scroll indicator animation */
+@keyframes scroll-indicator {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+.animate-scroll-indicator {
+  animation: scroll-indicator 1.5s ease-in-out infinite;
+}

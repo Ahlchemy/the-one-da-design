@@ -94,3 +94,82 @@
 
 - [x] Increase hero image size by 5%
 - [x] Move hero image 15px to the right
+
+
+## Design Polish & Professional Enhancements
+
+### Navigation & Header
+- [x] Remove colored boxes from navigation links, use subtle hover states
+- [x] Add smooth scroll progress indicator bar
+- [ ] Implement section highlighting for active navigation items
+
+### Hero Section
+- [ ] Add subtle parallax effect to background or headshot
+- [x] Implement animated scroll indicator (bouncing arrow)
+- [ ] Refine "Transformation" gradient interaction intensity
+- [ ] Add staggered entrance animations for hero elements
+
+### Feature Cards
+- [x] Enhance card depth with shadows and hover lift effects
+- [x] Improve icon treatment with glows/gradients
+- [x] Add intersection observer-based fade-in animations
+- [x] Refine card spacing for better breathing room
+
+### Section Transitions
+- [ ] Add diagonal SVG dividers between sections
+- [ ] Implement scroll-triggered fade-in animations
+- [ ] Create visual rhythm with alternating backgrounds
+
+### Project Cards
+- [ ] Redesign project card layout with larger cards
+- [ ] Add hover preview states with smooth transitions
+- [ ] Improve carousel navigation button styling
+- [ ] Add visual category tags with pill backgrounds
+
+### Infinite Skills Scroller
+- [x] Add pause-on-hover functionality
+- [ ] Improve text contrast for readability
+- [x] Add gradient fade-out edges
+
+### Contact Form
+- [ ] Enhance form input styling with focus glows
+- [ ] Improve submit button with loading/success states
+- [ ] Add form field icons
+
+### Typography & Spacing
+- [ ] Refine heading hierarchy with consistent ratios
+- [ ] Improve line-height consistency (1.6-1.8 for body)
+- [ ] Add subtle letter-spacing to headings
+
+### Micro-interactions
+- [ ] Add button ripple effects on click
+- [ ] Enhance link hover states with smooth transitions
+- [ ] Add loading skeleton states if needed
+
+### Mobile Responsiveness
+- [ ] Implement hamburger menu with slide-out drawer
+- [ ] Optimize hero for mobile (show headshot)
+- [ ] Adjust infinite scroller speed for mobile
+- [ ] Improve touch targets (44x44px minimum)
+
+### Footer
+- [ ] Redesign footer layout with structured columns
+- [ ] Add social proof elements if available
+- [ ] Improve visual weight with background differentiation
+
+### Performance & Polish
+- [ ] Optimize animations with GPU acceleration
+- [ ] Add reduced motion support for accessibility
+- [ ] Implement lazy loading for images
+- [ ] Add page transition effects
+
+### Dark/Light Theme
+- [ ] Refine theme toggle animation
+- [ ] Improve dark mode contrast (WCAG AAA)
+- [ ] Add theme-specific imagery treatments
+
+### Visual Cohesion
+- [ ] Establish consistent border radius system
+- [ ] Standardize shadow system (3-4 levels)
+- [ ] Add subtle texture overlays to backgrounds
+- [ ] Implement consistent animation timing scale

@@ -38,6 +38,7 @@ export default function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const features = [
     {
@@ -167,6 +168,18 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -188,8 +201,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-muted z-[60]">
+        <div 
+          className="h-full bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-150"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       {/* Navigation Bar */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+      <nav className="sticky top-1 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
         <div className="container">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
@@ -201,40 +222,44 @@ export default function Home() {
               <div className="hidden md:flex items-center gap-8">
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1"
                 >
                   About
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                 </button>
                 <button 
                   onClick={() => scrollToSection('projects')}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1"
                 >
                   Projects
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
                 </button>
                 <button 
                   onClick={() => alert('Articles section coming soon!')}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1"
                 >
                   Articles
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
                 </button>
                 <button 
                   onClick={() => alert('Resources section coming soon!')}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1"
                 >
                   Resources
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                 </button>
               </div>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="rounded-full"
+                className="rounded-full hover:bg-muted transition-all duration-300"
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? (
-                  <Sun className="w-5 h-5" />
+                  <Sun className="w-5 h-5 transition-transform duration-300 hover:rotate-180" />
                 ) : (
-                  <Moon className="w-5 h-5" />
+                  <Moon className="w-5 h-5 transition-transform duration-300 hover:-rotate-12" />
                 )}
               </Button>
             </div>
@@ -318,6 +343,14 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+          <span className="text-xs text-muted-foreground font-medium">Scroll to explore</span>
+          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
+            <div className="w-1.5 h-3 bg-primary rounded-full animate-scroll-indicator" />
+          </div>
+        </div>
       </section>
 
       {/* Features Section */}
@@ -332,17 +365,18 @@ export default function Home() {
               Creating adaptive, data-driven learning experiences that close skill gaps and accelerate business growth.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {features.map((feature, index) => (
               <Card 
                 key={index} 
-                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-accent/50 bg-card"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 hover:border-primary/30 bg-card shadow-lg hover:shadow-primary/10 overflow-hidden relative"
               >
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/10 to-accent/10 flex items-center justify-center mb-4 text-primary group-hover:scale-110 transition-transform">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <CardContent className="p-8 relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center mb-5 text-primary group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-md group-hover:shadow-lg group-hover:shadow-primary/20">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -526,9 +560,13 @@ export default function Home() {
       </section>
 
       {/* Infinite Skills Scroller */}
-      <section className="py-8 bg-muted/30 overflow-hidden border-y border-border">
+      <section className="relative py-8 bg-muted/30 overflow-hidden border-y border-border group">
+        {/* Gradient fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted/30 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted/30 to-transparent z-10 pointer-events-none" />
+        
         <div className="flex items-center whitespace-nowrap">
-          <div className="animate-scroll flex items-center gap-12 pr-12">
+          <div className="animate-scroll group-hover:[animation-play-state:paused] flex items-center gap-12 pr-12">
             {/* First set of items */}
             <span className="text-lg font-semibold text-foreground">ADDIE Model</span>
             <span className="text-lg font-semibold text-muted-foreground">SAM Methodology</span>
