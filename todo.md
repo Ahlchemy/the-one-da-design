@@ -173,3 +173,91 @@
 - [ ] Standardize shadow system (3-4 levels)
 - [ ] Add subtle texture overlays to backgrounds
 - [ ] Implement consistent animation timing scale
+
+
+## Supabase CMS Implementation
+
+### Supabase Setup
+- [ ] List existing Supabase projects
+- [ ] Get Supabase project URL and API keys
+- [ ] Install @supabase/supabase-js package
+- [ ] Create Supabase client configuration
+- [ ] Add environment variables for Supabase
+
+### Database Schema
+- [ ] Create projects table with all fields
+- [ ] Create articles table with content and metadata
+- [ ] Create resources table
+- [ ] Enable Row Level Security (RLS) on all tables
+- [ ] Create policies for public read access
+- [ ] Create policies for authenticated write access
+- [ ] Create storage bucket for file uploads
+
+### Authentication
+- [ ] Create AuthContext for managing user state
+- [ ] Implement sign in functionality
+- [ ] Implement sign out functionality
+- [ ] Add login button to navigation
+- [ ] Create login page with form
+- [ ] Protect admin routes with authentication
+
+### Mobile Hamburger Menu
+- [ ] Create mobile menu component with slide-out drawer
+- [ ] Add hamburger icon button for mobile
+- [ ] Implement smooth open/close animations
+- [ ] Add backdrop overlay when menu is open
+- [ ] Ensure menu closes on link click
+- [ ] Make menu responsive for different screen sizes
+- [ ] Add login/logout button to mobile menu
+
+### Articles/Blog Section
+- [ ] Create Articles page with grid layout
+- [ ] Create ArticleCard component
+- [ ] Create individual Article detail page with slug routing
+- [ ] Add rich text rendering for article content
+- [ ] Implement article filtering by category/tags
+- [ ] Add pagination for article list
+- [ ] Create 3-5 sample AI learning articles
+- [ ] Add article metadata (author, date, reading time)
+- [ ] Implement SEO meta tags for articles
+
+### Project Detail Pages
+- [ ] Create Project detail page with slug routing
+- [ ] Add full project description and overview
+- [ ] Display project metrics and results
+- [ ] Add tools and technologies used section
+- [ ] Create before/after comparison section
+- [ ] Add client testimonials component
+- [ ] Include implementation process timeline
+- [ ] Add image gallery for project screenshots
+- [ ] Create call-to-action for similar projects
+
+### Admin Panel
+- [ ] Create admin layout with sidebar navigation
+- [ ] Build admin dashboard with stats overview
+- [ ] Create Projects admin page (list view)
+- [ ] Create Project form (create/edit)
+- [ ] Create Articles admin page (list view)
+- [ ] Create Article form with rich text editor
+- [ ] Create Resources admin page (list view)
+- [ ] Create Resource form
+- [ ] Implement file upload functionality
+- [ ] Add delete confirmation modals
+- [ ] Add success/error toast notifications
+
+### File Upload & Storage
+- [ ] Create upload utility function
+- [ ] Implement image upload to Supabase Storage
+- [ ] Add file type validation
+- [ ] Add file size limits
+- [ ] Create file preview before upload
+- [ ] Handle upload progress indicators
+
+### Public Pages Integration
+- [ ] Update homepage to fetch projects from Supabase
+- [ ] Create Projects page fetching from database
+- [ ] Create Articles page fetching from database
+- [ ] Create Resources page fetching from database
+- [ ] Add loading states for data fetching
+- [ ] Add error handling for failed requests
+- [ ] Implement caching strategy for performance

@@ -6,6 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useAuth } from "@/contexts/AuthContext";
+import { MobileMenu } from "@/components/MobileMenu";
+import { Link } from "wouter";
 import { 
   Brain, 
   Lightbulb, 
@@ -33,6 +36,7 @@ import {
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
+  const { user, signOut } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -227,33 +231,42 @@ export default function Home() {
                   About
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                 </button>
-                <button 
-                  onClick={() => scrollToSection('projects')}
-                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1"
-                >
-                  Projects
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
-                </button>
-                <button 
-                  onClick={() => alert('Articles section coming soon!')}
-                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1"
-                >
-                  Articles
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
-                </button>
-                <button 
-                  onClick={() => alert('Resources section coming soon!')}
-                  className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1"
-                >
-                  Resources
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-                </button>
+                <Link href="/projects">
+                  <button className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1">
+                    Projects
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary group-hover:w-full transition-all duration-300" />
+                  </button>
+                </Link>
+                <Link href="/articles">
+                  <button className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1">
+                    Articles
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
+                  </button>
+                </Link>
+                <Link href="/resources">
+                  <button className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group pb-1">
+                    Resources
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+                  </button>
+                </Link>
               </div>
+              {user ? (
+                <div className="hidden md:flex items-center gap-3">
+                  <Link href="/admin">
+                    <Button variant="outline" size="sm">Admin</Button>
+                  </Link>
+                  <Button onClick={signOut} variant="outline" size="sm">Logout</Button>
+                </div>
+              ) : (
+                <Link href="/login">
+                  <Button variant="outline" size="sm" className="hidden md:inline-flex">Login</Button>
+                </Link>
+              )}
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="rounded-full hover:bg-muted transition-all duration-300"
+                className="hidden md:inline-flex rounded-full hover:bg-muted transition-all duration-300"
                 aria-label="Toggle theme"
               >
                 {theme === 'dark' ? (
@@ -262,6 +275,7 @@ export default function Home() {
                   <Moon className="w-5 h-5 transition-transform duration-300 hover:-rotate-12" />
                 )}
               </Button>
+              <MobileMenu />
             </div>
           </div>
         </div>
